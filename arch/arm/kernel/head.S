@@ -9,7 +9,7 @@
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  *
- *  Kernel startup code for all 32-bit CPUs
+ *  Kernel startup code for all 32-bit CPUs 在这里做个测试
  */
 #include <linux/linkage.h>
 #include <linux/init.h>
