@@ -12,6 +12,9 @@ obj-y	 += mem.o random.o tty_io.o n_tty.o tty_ioctl.o tty_ldisc.o tty_buffer.o t
 obj-y	 += led/
 obj-y	 += buzzer/
 
+# obj-m	 += fishing/
+obj-$(CONFIG_FISHING_POLE)	 += fishing/
+
 obj-$(CONFIG_LEGACY_PTYS)	+= pty.o
 obj-$(CONFIG_UNIX98_PTYS)	+= pty.o
 obj-y				+= misc.o
