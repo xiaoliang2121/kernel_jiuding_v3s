@@ -34,11 +34,11 @@
 
 static struct semaphore lock;
 
-// TCFG0在Uboot中设置，这里不再重复设置
-// Timer0输入频率Finput=pclk/(prescaler1+1)/MUX1
+// TCFG0鍦║boot涓缃紝杩欓噷涓嶅啀閲嶅璁剧疆
+// Timer0杈撳叆棰戠巼Finput=pclk/(prescaler1+1)/MUX1
 //                     =66M/16/16
 // TCFG0 = tcnt = (pclk/16/16)/freq;
-// PWM0输出频率Foutput =Finput/TCFG0= freq
+// PWM0杈撳嚭棰戠巼Foutput =Finput/TCFG0= freq
 static void PWM_Set_Freq( unsigned long freq )
 {
 	unsigned long tcon;
@@ -50,7 +50,7 @@ static void PWM_Set_Freq( unsigned long freq )
 
 	//unsigned tmp;
 	
-	//设置GPD0_2为PWM输出
+	//璁剧疆GPD0_2涓篜WM杈撳嚭
 	s3c_gpio_cfgpin(S5PV210_GPD0(2), S3C_GPIO_SFN(2));
 
 	tcon = __raw_readl(S3C2410_TCON);
@@ -67,7 +67,7 @@ static void PWM_Set_Freq( unsigned long freq )
 	tcnt  = (pclk/16/16)/freq;
 	
 	__raw_writel(tcnt, S3C2410_TCNTB(2));
-	__raw_writel(tcnt/2, S3C2410_TCMPB(2));//占空比为50%
+	__raw_writel(tcnt/2, S3C2410_TCMPB(2));//鍗犵┖姣斾负50%
 
 	tcon &= ~(0xf<<12);
 	tcon |= (0xb<<12);		//disable deadzone, auto-reload, inv-off, update TCNTB0&TCMPB0, start timer 0
@@ -79,7 +79,7 @@ static void PWM_Set_Freq( unsigned long freq )
 
 void PWM_Stop( void )
 {
-	//将GPD0_2设置为input
+	//灏咷PD0_2璁剧疆涓篿nput
 	s3c_gpio_cfgpin(S5PV210_GPD0(2), S3C_GPIO_SFN(0));	
 }
 
