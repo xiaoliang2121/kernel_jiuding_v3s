@@ -444,8 +444,6 @@ source "drivers/serial/Kconfig"
 source "drivers/char/led/Kconfig"
 source "drivers/char/buzzer/Kconfig"
 
-source "drivers/char/fishing/Kconfig"
-
 config UNIX98_PTYS
 	bool "Unix98 PTY support" if EMBEDDED
 	default y

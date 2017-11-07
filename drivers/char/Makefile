@@ -13,7 +13,7 @@ obj-y	 += led/
 obj-y	 += buzzer/
 
 # obj-m	 += fishing/
-obj-$(CONFIG_FISHING_POLE)	 += fishing/
+# obj-$(CONFIG_FISHING_POLE)	 += fishing/
 
 obj-$(CONFIG_LEGACY_PTYS)	+= pty.o
 obj-$(CONFIG_UNIX98_PTYS)	+= pty.o
